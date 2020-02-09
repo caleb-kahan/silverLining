@@ -21,22 +21,27 @@ def draw_line( x0, y0, x1, y1, screen, color ):
     pass
 def QuadVersionX(x,y,x1,A,B,screen,color):
     D = 2*A+B*sign(A)
-    while x<=x1:
+    while x!=x1:
         plot(screen,color,x,y)
         if(sign(A)*D>0):
             y+=sign(A);
             D+=2*B*sign(A);
         x+=1
         D+=2*A
+    plot(screen,color,x,y)
+    
 def QuadVersionY(x,y,y1,A,B,screen,color):
+    #print(str(x)+","+str(y))
     D = A+B*2*sign(A)
-    while y<=y1:
+    while y!=y1:
         plot(screen,color,x,y)
         if(sign(A)*D<0):
             x+=1
             D+=2*A
         y+=sign(A);
         D+=2*B*sign(A)
+    plot(screen,color,x,y)
+
 def sign(num):
     if num>0:
         return 1
