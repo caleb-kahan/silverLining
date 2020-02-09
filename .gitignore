@@ -32,6 +32,9 @@
 *.la
 *.lo
 
+# FTP
+*.ftpconfig
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
