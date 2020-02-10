@@ -1,6 +1,6 @@
 from display import *
 from draw import *
-
+import math
 def main():
     s = new_screen()
     c = [255,255,255]
@@ -31,10 +31,14 @@ def editImage(image):
     c=[255,0,0]
     for i in range(1,XRES):
         actualX = i - XRES//2
+        '''
         if actualX-1 == 0 or actualX+1==0:
             continue
-        draw_line(i-1,(500//(actualX-1))+YRES/2,i+1,(500//(actualX+1))+YRES//2,image,c)
-
+        draw_line(i-1,(500//(actualX-1))+YRES//2,i+1,(500//(actualX+1))+YRES//2,image,c)
+        '''
+        if actualX-1 == 0 or actualX+1==0:
+            continue
+        draw_line(i-1,(250*math.sin((actualX-1)/50))+YRES//2,i+1,(250*math.sin((actualX+1))/50)+YRES//2,image,c)
 
 def distance(p1, p2):
     return math.sqrt((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)
